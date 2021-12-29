@@ -1,0 +1,35 @@
+
+/*== 헤더관련 ==*/
+.header{width: 100%; background: rgba(0,0,0,0.88); padding-bottom: 15px; padding-top: 15px;}
+.header_box{width: 100%; max-width: 1440px; margin: 0 auto; color: #eeeeee;}
+
+.sliderWrap{width: 100%; background: aquamarine; margin-bottom: 20px;}
+.slider{width: 100%; max-width: 1440px; margin: 0 auto;}
+.slide1{background: url("../../images/slide1.png") no-repeat; background-size: cover; width: 1440px; height: 600px;}
+
+.banner{width: 100%; max-width: 1440px; margin: 0 auto;display: flex; justify-content: center}
+.banner ul{width: 100%; display: flex; list-style: none; justify-content: space-between}
+.banner ul li{display: inline-block}
+
+.product{width: 100%; background: gainsboro; margin-top: 20px}
+.product_wrap{width: 100%; max-width: 1440px;margin: 0 auto; text-align: center;justify-content: center}
+.product_wrap .bls{display:flex; width: 20%; justify-content: space-between; margin: 0 auto; list-style: none;}
+.product_content{display: flex; flex-wrap: wrap }
+.product_button{background: white; width: auto; font-size: .85em; font-weight: bold; padding-inline: 16px; padding-block: 4px; margin-right: 10px}
+.product_button_wrap > label:last-child > .product_button{margin: 0;}
+.product_button_wrap{display: flex; width: 100%; justify-content: center; margin-bottom: 15px}
+
+#product_all:checked ~ .product_button_wrap > label:nth-child(1) > .product_button,
+#product_all:checked ~ .product_button_wrap > label:nth-child(1) > .product_button,
+#product_all:checked ~ .product_button_wrap > label:nth-child(1) > .product_button,
+#product_all:checked ~ .product_button_wrap > label:nth-child(1) > .product_button {  background: }
+/*== 공통 플렉스 ==*/
+.sb{display: flex; justify-content: space-between; margin-bottom: 10px;vertical-align: middle}
+.sb1{display: flex; justify-content: space-between; border-top: 1px solid darkgrey; padding-top: 25px;vertical-align: middle}
+
+.fs{display: flex; justify-content: flex-start}
+.ls{display:flex; list-style: none;}
+.ls li::after{content: "|"; height: 5px; color: #eeeeee; margin: 10px}
+
+.wrap{width: 100%; max-width: 1440px; margin: 0 auto; position: relative}
+
