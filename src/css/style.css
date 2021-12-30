@@ -8,11 +8,47 @@
 .header_info { display: flex; justify-content: flex-start }
 
 /*== 슬라이더 ==*/
-.slider_wrap{ width: 100%; background: aquamarine; margin-bottom: 20px; }
-.slider{ width: 100%; max-width: 1440px; margin: 0 auto; }
-.slide1{ background: url("../../images/slide1.png") no-repeat; background-size: cover; width: 1440px; height: 600px; }
+.slider_wrap{ height: 600px; width: 100%; background: aquamarine; margin-bottom: 20px; position: relative }
+.slider_wrap input { display: none }
+.slider_wrap > .left { left: 0; }
+.slider_wrap > .right { right: 0; }
+.slider_wrap > .chevron_box { height: 100%; width: calc((100% - 1440px)/2); position: absolute; font-size: 2.5em; color: rgba(0, 0, 0, .5); }
+.slider_wrap > .chevron_box i { position: absolute; left: 50%; top: 50%; transform: translate(-50% -50%) }
+.slider{ width: 100%; max-width: 1440px; margin: 0 auto; position: relative; height: 600px; overflow: hidden }
+.slide1{ background: url("../../images/slide1.png") no-repeat; background-size: cover; width: 1440px; height: 600px; position: absolute; top: 0; left: 0}
+.slide2{ background: url("../../images/slide2.png") no-repeat; background-size: cover; width: 1440px; height: 600px; position: absolute; top: 0; left: 1440px}
+.slide3{ background: url("../../images/slide3.png") no-repeat; background-size: cover; width: 1440px; height: 600px; position: absolute; top: 0; left: calc(1440px * 2)}
+.slide4{ background: url("../../images/slide3.png") no-repeat; background-size: cover; width: 1440px; height: 600px; position: absolute; top: 0; left: -1440px}
+.slide5{ background: url("../../images/slide1.png") no-repeat; background-size: cover; width: 1440px; height: 600px; position: absolute; top: 0; left: calc(1440px * 3)}
+.chevron_box > div { display: none; }
 
-/*== 배너 ==*/
+
+
+#slide_btn1:checked ~ .chevron_box > div:nth-child(1),
+#slide_btn2:checked ~ .chevron_box > div:nth-child(2),
+#slide_btn3:checked ~ .chevron_box > div:nth-child(3) { display: block; }
+
+#slide_btn1:checked ~ .slider > .slide1 { left: 0; }
+#slide_btn1:checked ~ .slider > .slide2 { left: 1440px }
+#slide_btn1:checked ~ .slider > .slide3 { left: calc(1440px * 2)}
+#slide_btn1:checked ~ .slider > .slide4 { left: -1440px}
+#slide_btn1:checked ~ .slider > .slide5 { left: calc(1440px * 3)}
+
+#slide_btn2:checked ~ .slider > .slide1 { left: calc(1440px * 3)}
+#slide_btn2:checked ~ .slider > .slide2 { left: 0;}
+#slide_btn2:checked ~ .slider > .slide3 { left: 1440px}
+#slide_btn2:checked ~ .slider > .slide4 { left: calc(1440px * 2)}
+#slide_btn2:checked ~ .slider > .slide5 { left: -1440px}
+
+#slide_btn3:checked ~ .slider > .slide1 { left: -1440px}
+#slide_btn3:checked ~ .slider > .slide2 { left: calc(1440px * 3)}
+#slide_btn3:checked ~ .slider > .slide3 { left: 0;}
+#slide_btn3:checked ~ .slider > .slide4 { left: 1440px}
+#slide_btn3:checked ~ .slider > .slide5 { left: calc(1440px * 2)}
+
+
+
+    /*== 배너 ==*/
 .banner{ width: 100%; max-width: 1440px; margin: 0 auto;display: flex; justify-content: space-between;}
 .banner div { overflow: hidden; position: relative }
 .banner div i { position: absolute; left: 50%; top: 50%; color: white; transform: translate(-50% -50%); opacity: 0 }
@@ -24,10 +60,10 @@
 .product_wrap{ width: 1440px;margin: 0 auto; text-align: center;justify-content: center }
 .product_wrap .bls{ display:flex; width: 20%; justify-content: space-between; margin: 0 auto; list-style: none; }
 .product input { display: none }
-.product_content{ width: 1440px; display: flex; flex-wrap: wrap; justify-content: flex-start; margin: 0 -15px}
+.product_content{ display: flex; flex-wrap: wrap; justify-content: flex-start; margin: 0 -15px}
 .product_content .add_cart { width: 50%; height: 25px; margin: 0 auto; border-radius: 10px; background: #ff8787; color: white; text-align: center }
-.product_content .add_cart:hover { cursor: pointer }
-.product_content div { width: calc(100% / 12 * 3); height: 400px; overflow: hidden; padding: 15px; }
+.product_content  .add_cart:hover { cursor: pointer }
+.product_content > div { width: calc(100% / 12 * 3); height: 400px; overflow: hidden; padding: 15px; }
 .product_content div:nth-child(4n) { margin: 0 !important }
 .product_content div img{ width: 100%; height: 400px; }
 .product_content div:hover img { filter: brightness(50%) }
@@ -65,18 +101,14 @@
 
 .rice,
 .fruit,
-.seafood { display: none}
+.seafood { transform: scale3d(.001,.001,1); opacity: 0; }
 
 #product_all:checked ~ .product_content > .rice,
 #product_all:checked ~ .product_content > .fruit,
 #product_all:checked ~ .product_content > .seafood,
 #product_rice:checked ~ .product_content > .rice,
 #product_fruit:checked ~ .product_content > .fruit,
-#product_seafood:checked ~ .product_content > .seafood {display: block; }
-/*#product_all:checked ~ .product_button_wrap > .product_button:nth-child(1)
-#product_rice:checked ~ .product_button_wrap > .product_button:nth-child(2)
-#product_fruit:checked ~ .product_button_wrap > .product_button:nth-child(3)
-#product_seafood:checked ~ .product_button_wrap > .product_button:nth-child(4)*/
+#product_seafood:checked ~ .product_content > .seafood { opacity: 1; transform: scale3d(1,1,1) rotate(2turn); }
 /*== 공통 플렉스 ==*/
 
 .ls{ display:flex; list-style: none; }
